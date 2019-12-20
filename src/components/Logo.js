@@ -22,11 +22,13 @@ return(
 
 <View style={styles.container}>
 
-<Image  style={{width:40, height: 70}}
+<Image  style={{width:100, height: 100}}
 
 source={require('../images/logo.png')}/>
 
-<Text style={styles.logoText}>Welcome to My app.</Text>
+<Text style={styles.logoText}>Buana Megah Paper</Text>
+
+<Text style={styles.alamatText}>Beji Pasuruan</Text>
 
 </View>
 
@@ -58,6 +60,16 @@ fontSize:18,
 
 color:'rgba(255, 255, 255, 0.7)'
 
-}
+},
+
+alamatText : {
+
+    marginVertical: 0,
+    
+    fontSize:12,
+    
+    color:'rgba(255, 255, 255, 0.7)'
+    
+    }
 
 });

@@ -26,33 +26,33 @@ return(
 <Scene key="signup" component={Signup} title="Register"/>
 
 <Scene 
-	key="utama" 
-	tabs={true}
-	hideNavBar
-	initial={true}
+  key="utama" 
+  tabs={true}
+  hideNavBar
+  initial={true}
 >
 			
-                      <Scene
-                        key="wiring"
-                        component={Home}
-                        title="Wiring"
-                        //tintColor={Colors.primaryColor}
-                        back={false}
-                      />
-                      <Scene
-                        key="joblist"
-                        component={Home}
-                        title="Joblist"
-                        //tintColor={Colors.primaryColor}
-                        back={false}
-                      />
-                      <Scene
-                        key="home"
-                        component={Home}
-                        title="Checklist"
-                        //tintColor={Colors.primaryColor}
-                        back={false}
-                      />
+      <Scene
+        key="home"
+        component={Home}
+        title="Home"
+        //tintColor={Colors.primaryColor}
+        back={false}
+      />
+      <Scene
+        key="joblist"
+        component={Home}
+        title="Joblist"
+        //tintColor={Colors.primaryColor}
+        back={false}
+      />
+      <Scene
+        key="account"
+        component={Home}
+        title="Account"
+        //tintColor={Colors.primaryColor}
+        back={false}
+      />
 </Scene>
 
 </Stack>

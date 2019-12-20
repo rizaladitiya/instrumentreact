@@ -49,7 +49,7 @@ return(
 <Logo/>
 
 <Form type="Login"/>
-
+{/*  
 <View style={styles.signupTextCont}>
 
 <Text style={styles.signupText}>Dont have an account yet?</Text>
@@ -58,7 +58,7 @@ return(
 
 </View>
 
-
+*/}
 </View>
 
 )

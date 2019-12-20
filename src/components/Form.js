@@ -47,14 +47,29 @@ constructor(props) {
 	handleSubmit(){
 		this.setState({ 
 		
-				});
-		fungsi.login(this.state.user,this.state.password)
+        });
+    
+    //fungsi.login(this.state.user,this.state.password)
+    this.CheckTextInput()
 	}
 	utama() {
 
 	Actions.utama()
 
-	}
+  }
+  CheckTextInput = () => {
+    //Handler for the Submit onPress
+    if (this.state.user == '') {
+      //Check for the Name TextInput
+      WToast.show({data: "User harus di isi"})
+      return false
+    }
+    if (this.state.password == '') {
+      WToast.show({data: "Password harus di isi"})
+      return false
+    } 
+    fungsi.login(this.state.user,this.state.password)
+  }
 render(){
 	
 return(

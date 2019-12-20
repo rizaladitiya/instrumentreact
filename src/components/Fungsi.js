@@ -14,8 +14,21 @@ const fungsi = {
 			Actions.login()
 		}
     },
-    helper2: function(param1){
-
+    async hasilprod(tanggal){
+		/*
+		fetch('http://36.67.32.45:898/api/barang/hasilprodtotal/'+tanggal
+		).then((response) => response.json())
+		  .then((responseData) => { 
+			//console.log("response: " + JSON.stringify(responseData)); 
+				return responseData;
+			})
+		  .catch((err) => { console.log(err); 
+		});
+		*/
+		const response = await fetch("http://36.67.32.45:898/api/barang/hasilprodtotal/"+tanggal, {});
+		const json = await response.json();
+		//console.log("response: " + JSON.stringify(json)); 
+		return JSON.stringify(json)
     },
 	async saveItem(item, selectedValue) {
 		try {
@@ -24,16 +37,27 @@ const fungsi = {
 		  console.error('AsyncStorage error: ' + error.message);
 		}
 	},
+	async deleteItem(item) {
+		try {
+		  await AsyncStorage.removeItem(item);
+		} catch (error) {
+		  console.error('AsyncStorage error: ' + error.message);
+		}
+	},
 	async getItem(item){
-	AsyncStorage.getItem(item).then((value) => {
-		//this.setState({"message": value});
-		WToast.show({data: value})
-		return value;
-	})
-	.then(res => {
-		//do something else
-		//WToast.show({data: value})
-	});
+		try {
+			AsyncStorage.getItem(item).then((value) => {
+				//this.setState({"message": value});
+				//WToast.show({data: value})
+				return value;
+			})
+			.then(res => {
+				//do something else
+				//WToast.show({data: value})
+			});
+		} catch (error) {
+		  console.error('AsyncStorage error: ' + error.message);
+		}
 	},
     login: function(user,password){
 		const formData = new FormData()
@@ -51,9 +75,10 @@ const fungsi = {
 				if(responseData.status=="success"){
 					this.saveItem('user',responseData.user)
 					Actions.utama()
+				}else{
+					WToast.show({data: "Periksa User Kembali"})
 				}
 				this.getItem("user");
-				//WToast.show({data: responseData})
 			})
 		  .catch((err) => { console.log(err); 
 		});
